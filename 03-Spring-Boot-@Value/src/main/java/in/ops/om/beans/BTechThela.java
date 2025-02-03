@@ -1,9 +1,11 @@
 package in.ops.om.beans;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component("info")
+@PropertySource("in/ops/om/cfgs/input.properties")
 public class BTechThela {
 	
 	public BTechThela() {
@@ -26,7 +28,6 @@ public class BTechThela {
 	public String toString() {
 		return "BTechThela [chaiPrice=" + chaiPrice + ", dosaPrice=" + dosaPrice + ", idliPrice=" + idliPrice + "]";
 	}
-//	
 	
 	
 
