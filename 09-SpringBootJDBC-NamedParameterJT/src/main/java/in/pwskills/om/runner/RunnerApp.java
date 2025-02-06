@@ -122,7 +122,12 @@ private static final String SELECT_BY_ADDRESS = "select * from student where sad
 		
 //		service.getAllStudent().forEach(System.out::println);
 		
-//		service.getStudentByAddress("bhilai", "raipur").forEach(System.out::println);
+//	service.getStudentByAddress("bhilai", "bilaspur").forEach(System.out::println);
+		
+		service.registerStudent(new StudentDTO("Rohan",32,"bhilai"));
+		
+		
+		
 		
 
 	}
