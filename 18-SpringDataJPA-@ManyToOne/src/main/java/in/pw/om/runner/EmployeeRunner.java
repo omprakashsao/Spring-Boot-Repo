@@ -1,5 +1,8 @@
 package in.pw.om.runner;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -22,20 +25,59 @@ public class EmployeeRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-	Department d1 = new Department(1, "DEV", "IT_Dev");
-	Department d2 = new Department(2, "QA", "Test");
 	
-	drepo.save(d1);
-	drepo.save(d2);
-	
-	Employee emp1 = new Employee(101, "Prabhas", "Mahesmati", d1);
-	Employee emp2 = new Employee(102, "Ironman", "Avengers", d1);
-	Employee emp3 = new Employee(103, "Howki", "DC", d2);
-	
-	erepo.save(emp1);
-	erepo.save(emp2);
-	erepo.save(emp3);
+		List<Object[]> emp = erepo.findEmployeeNamesWithDepartments();
+		for (Object[] objects : emp) {
+			for (Object obj : objects) {
+				System.out.print(obj+" ");
+				
+			}
+			System.out.println();
+		}
 		
+		System.out.println("****************************************************************");
+		
+		List<Object[]> emp1 = erepo.findEmployeeRecordsAndDepartmentIfExist();
+		for (Object[] objects : emp1) {
+			for (Object obj : objects) {
+				System.out.print(obj+" ");
+				
+			}
+			System.out.println();
+		}
+		
+System.out.println("****************************************************************");
+		
+		List<Object[]> emp2 = erepo.findDepartmentRecordsAndEmployeeIfExist();
+		for (Object[] objects : emp2) {
+			for (Object obj : objects) {
+				System.out.print(obj+" ");
+				
+			}
+			System.out.println();
+		}
+		
+System.out.println("****************************************************************");
+		
+		List<Object[]> emp3 = erepo.findEmployeeAndDepartementIsNull();
+		for (Object[] objects : emp3) {
+			for (Object obj : objects) {
+				System.out.print(obj+" ");
+				
+			}
+			System.out.println();
+		}
+		
+System.out.println("****************************************************************");
+		
+		List<Object[]> emp4 = erepo.findDepartmentAndEmployeeIsNull();
+		for (Object[] objects : emp4) {
+			for (Object obj : objects) {
+				System.out.print(obj+" ");
+				
+			}
+			System.out.println();
+		}
 	
 	
 		
